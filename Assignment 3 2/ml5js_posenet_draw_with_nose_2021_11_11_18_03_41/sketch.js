@@ -1,3 +1,20 @@
+// William Boyd
+
+// I used the same arduino code from assignment 1 for this assignment 3. 
+
+// Sounds downloaded from https://freesound.org/people/ITheRealGooglekatClaire/sounds/607723/
+// video flip from daniel Shiffman https://www.youtube.com/watch?v=EA3-k9mnLHs
+// base code for the drawing p5js https://editor.p5js.org/AndreasRef/sketches/r1_w73FhQ
+// Clear function p5JS https://p5js.org/reference/#/p5/clear
+// Create Audio Function p5JS https://p5js.org/reference/#/p5/createAudio
+// Arduino Code and other elements were used from Class and passed assignments for project 2
+
+
+//Attempted and failed code
+// slider for volume control https://p5js.org/reference/#/p5/createSlider
+// volume p5Js https://p5js.org/reference/#/p5.MediaElement/volume
+// set volume P5JS https://p5js.org/reference/#/p5.SoundFile/setVolume
+
 let video;
 let poseNet; 
 let poses = [];
@@ -159,12 +176,12 @@ function draw() {
 if (input == 1){
   soundPlay();
 }
-if (potent < 3){
+if (potent == 0 ){
   clearScreen();
 }
 }
 function clearScreen(){
-  if(light == 2){
+  if(potent == 0){
   pg.clear();
   // background(255,255,255);
 }
@@ -193,8 +210,8 @@ function drawKeypoints() {
           noseX = keypoint.position.x;
           noseY = keypoint.position.y;
 
-          pg.stroke(230, 80, 0);
-          pg.strokeWeight(potent);
+          pg.stroke(30, potent, 75);
+          pg.strokeWeight(light);
           pg.line(noseX, noseY, pNoseX, pNoseY);
 
           pNoseX = noseX;
